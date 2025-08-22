@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List!</title>
+
+    <!-- CSS External -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+
+    <!-- Hero Website -->
+    <header>
+        <h1 class="text-4xl font-bold text-sky-600 select-none">To Do List!</h1>
+    </header>
+
+    <!-- Main Content, Todo List Form, List Todo -->
+    <main>
+        <form>
+            <input type="text" id="task-input" placeholder="Add a to do..." class="border p-2 rounded">
+            <input type="date" id="due-date-input" class="border p-2 rounded">
+            <button type="button" onclick="validateForm();" class="bg-sky-600 text-white p-[9px] rounded">+ Add Task</button>
+            <button onclick="deleteAll()" class="bg-red-500 text-white p-[9px] rounded">Delete All</button>
+        </form>
+
+    <!-- List of Task -->
+        <section>
+            <header>
+                <h2 class="text-2xl font-semibold text-sky-600">Your Tasks</h2>
+            </header>
+            <nav aria-label="Task filters" class="flex flex-wrap gap-3 mb-5 items-center">
+                <div class="flex gap-1 bg-sky-100 rounded-lg border border-sky-300 overflow-hidden select-none">
+                <button class="filter-btn px-4 py-2 bg-white text-sky-800 font-semibold" data-filter="all" aria-pressed="true" type="button">All <span id="count-all" class="ml-1">(0)</span></button>
+                <button class="filter-btn px-4 py-2 text-sky-600 hover:bg-sky-200" data-filter="inprogress" aria-pressed="false" type="button">In Progress <span id="count-in-progress" class="ml-1">(0)</span></button>
+                <button class="filter-btn px-4 py-2 text-sky-600 hover:bg-sky-200 rounded-r-lg" data-filter="completed" aria-pressed="false" type="button">Completed <span id="count-completed" class="ml-1">(0)</span></button>
+                </div>
+            <select id="date-filter" aria-label="Filter by due date" class="border border-gray-300 rounded-lg p-2 cursor-pointer max-w-xs">
+                <option value="all">All Dates</option>
+                <option value="overdue">Overdue</option>
+                <option value="today">Due Today</option>
+                <option value="future">Upcoming</option>
+            </select>
+            </nav>
+            <table>
+                <thead>
+                <tr>
+                    <th class="px-4 py-3 border-r border-gray-300"><span class="sr-only">Select</span></th>
+                    <th class="px-4 py-3 border-r border-gray-300">Task</th>
+                    <th class="px-4 py-3 border-r border-gray-300">Due Date</th>
+                    <th class="px-4 py-3 border-r border-gray-300">Status</th>
+                    <th class="px-4 py-3">Action</th>
+                </tr>
+                </thead>
+            <tbody id="tasks-table-body" class="bg-white divide-y divide-gray-200 select-text"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <span>&copy; 2025 Nelly Sugianti. All rights reserved.</span>
+    </footer>
+
+    <!-- JS External -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
